@@ -19,8 +19,9 @@ Finally, Bats immediately fly to the Hero's column, but can never leave their in
 The Hero and all Baddies are not allowed to end their move on a Wall cell OR go beyond the edge of the board. Attempted out-of-bounds moves are dealt with by separately checking the horizontal and vertical components of the movement, and ignoring either OR both components that put the Hero or Baddie out-of-bounds. Attempted movements onto a Wall need a little bit more care since Wall cells can be anywhere: attempts to move onto a Wall are dealt with by completely ignoring the horizontal portion of the attempted move and only moving vertically, unless that is still a Wall, in which case the attempted move is completely ignored and they stay put for that round. Here is what that means for the various types of attempted movements:
 
 if the Hero or a Baddie attempts to move perfectly horiztonally to end on a Wall, then their attempted move is ignored and they stay put for that round;
-if the Hero or a Baddie attempts to move perfectly vertically to end on a Wall, then their attempted move is ignored and they stay put for that round.
+if the Hero or a Baddie attempts to move perfectly vertically to end on a Wall, then their attempted move is ignored and they stay put for that round;
 if the Hero or a Baddie attempts to move diagonally to end on a Wall, then the horizontal portion of their movement is ignored and their attempted move is updated with the vertical portion only; then, their attempted move is checked again for a Wall.
+
 One special case is that the exit EscapeLadder acts a Wall cell for the Baddies, but it is the (ONLY) exit cell for the Hero.
 
 Since the movement of the Baddies is predictable, a successful Hero's strategy is to move in such a way that will cause each Baddie to fall into an Abyss cell. This can be challenging and/or impossible depending on the random arrangement of the initial board (quantity and location of Abyss cells, quantity and location of Baddies, etc.).
